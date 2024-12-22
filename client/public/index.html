@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="AI-Powered Employee Performance Insights Engine"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Add custom fonts (optional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>AI Performance Insights</title>
+
+    <!-- Add custom styles -->
+    <style>
+      /* Apply custom font to the entire app */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Custom scrollbar for modern browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Loading animation styles */
+      .loading-spinner {
+        border: 3px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 3px solid #3498db;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Prevent content flash on load */
+      #root {
+        opacity: 0;
+        animation: fadeIn 0.3s ease-in forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+    <!-- Loading spinner (shown before React loads) -->
+    <div id="loading-spinner" 
+         style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none;">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <script>
+      // Show loading spinner before React loads
+      document.getElementById('loading-spinner').style.display = 'block';
+
+      // Hide loading spinner when React is ready
+      window.addEventListener('load', function() {
+        document.getElementById('loading-spinner').style.display = 'none';
+      });
+
+      // Add smooth scrolling behavior
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
