@@ -26,8 +26,8 @@ function App() {
       setError(null);
       try {
         const [predictionsRes, statsRes] = await Promise.all([
-          axios.get(`http://localhost:8000/api/v1/predict/employee/${selectedEmployee}`),
-          axios.get(`http://localhost:8000/api/v1/stats/employee/${selectedEmployee}`)
+          axios.get(`http://localhost:8001/api/v1/predict/employee/${selectedEmployee}`),
+          axios.get(`http://localhost:8001/api/v1/stats/employee/${selectedEmployee}`)
         ]);
         setPredictions(predictionsRes.data);
         setStats(statsRes.data);

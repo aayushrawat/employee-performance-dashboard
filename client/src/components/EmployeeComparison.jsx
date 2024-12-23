@@ -9,7 +9,7 @@ const EmployeeComparison = () => {
     const fetchAllEmployeeStats = async () => {
       try {
         const promises = Array.from({ length: 10 }, (_, i) =>
-          axios.get(`http://localhost:8000/api/v1/stats/employee/${i + 1}`)
+          axios.get(`http://localhost:8001/api/v1/stats/employee/${i + 1}`)
         );
         const responses = await Promise.all(promises);
         setEmployeeStats(responses.map((res, index) => ({
